@@ -15,7 +15,7 @@ namespace Behaviors
         private Player _player;
         private float _moveDirection;
         private Vector3 _moveVector;
-        private bool _isAttacking, _actionAttack, _animationComplete;
+        private bool  _isAction, _animationComplete;
         private Rigidbody _playerRigidBody;
         private Animator _animator;
         private string _currentState;
@@ -116,22 +116,17 @@ namespace Behaviors
                             _statusDirection = 3;
                             ChangeAnimationState(WALKDOWN);
                             break;
-                        default:
-                            if (!_isAttacking)
-                            {
-                                _animator.speed = 0;
-                            }
-                            break;
+                        
                     }
 
                     break;
             }
            
             
-            _actionAttack =_player.GetButtonDown("Action");
-            if (_actionAttack && !_isAttacking)
+            _isAction =_player.GetButtonDown("Action");
+            if (_isAction)
             {
-                _isAttacking = true;
+
 
                 switch (_statusDirection)
                 {
@@ -153,7 +148,7 @@ namespace Behaviors
                 }
                 
                 AnimatorStateInfo animState = _animator.GetCurrentAnimatorStateInfo(0);
-                float currentTime = animState.normalizedTime % 1;
+
                 
                 Invoke(nameof(AttackComplete), .51f);
             }
@@ -162,7 +157,7 @@ namespace Behaviors
 
         private void AttackComplete()
         {
-            _isAttacking = false;
+            _isAction = false;
         }
 
         private void ProcessMovementInput()

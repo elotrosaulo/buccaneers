@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Behaviors
@@ -7,25 +8,29 @@ namespace Behaviors
     {
         [SerializeField] public int maxHealth;
         [SerializeField] public int currentHealth;
-        [SerializeField] public HealthBarBehaviour healthBar;
+        [SerializeField] public List<HealthBarBehaviour> healthBar;
 
         private bool _waitingForDamage;
-        
-        void Start()
+
+        private void Start()
         {
             currentHealth = maxHealth;
-            healthBar.SetMaxHealth(maxHealth);
+            healthBar.ForEach(x => x.SetMaxHealth(maxHealth));
         }
 
 
-        void Update()
+        private void Update()
         {
-            if (currentHealth == 1)
+            switch (currentHealth)
             {
-                //giving the last stretch of 10 seconds before going totally dark  
-                StartCoroutine(ReduceHealthBySecond(10));
+                case 0:
+                    return;
+                case 1:
+                    //giving the last stretch of 10 seconds before going totally dark  
+                    StartCoroutine(ReduceHealthBySecond(10));
+                    break;
             }
-            
+
             if (!_waitingForDamage && currentHealth >=0)
             {
                 StartCoroutine(ReduceHealthBySecond(1));
@@ -43,7 +48,7 @@ namespace Behaviors
         void TakeDamage(int damage)
         {
             currentHealth -= damage;
-            healthBar.SetHealth(currentHealth);
+            healthBar.ForEach(x => x.SetHealth(currentHealth));
         }
     }
 }
