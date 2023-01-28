@@ -9,7 +9,7 @@ namespace Behaviors
         [SerializeField] public int currentHealth;
         [SerializeField] public HealthBarBehaviour healthBar;
 
-        private bool waitingForDamage;
+        private bool _waitingForDamage;
         
         void Start()
         {
@@ -20,18 +20,24 @@ namespace Behaviors
 
         void Update()
         {
-            if (!waitingForDamage)
+            if (currentHealth == 1)
             {
-                StartCoroutine(ReduceHealthBySecond());
+                //giving the last stretch of 10 seconds before going totally dark  
+                StartCoroutine(ReduceHealthBySecond(10));
+            }
+            
+            if (!_waitingForDamage && currentHealth >=0)
+            {
+                StartCoroutine(ReduceHealthBySecond(1));
             }
         }
         
-        private IEnumerator ReduceHealthBySecond()
+        private IEnumerator ReduceHealthBySecond(float waitTime)
         {
-            waitingForDamage = true;
-            yield return new WaitForSeconds( 1.0f );
+            _waitingForDamage = true;
+            yield return new WaitForSeconds( waitTime );
             TakeDamage(1);
-            waitingForDamage = false;
+            _waitingForDamage = false;
         }
 
         void TakeDamage(int damage)
