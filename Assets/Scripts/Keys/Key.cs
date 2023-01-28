@@ -19,4 +19,9 @@ public class Key : MonoBehaviour
     {
         return ID;
     }
+
+    public void ChangeColor(Color color)
+    { 
+        gameObject.GetComponent<SpriteRenderer>().material.color = color;
+    }
 }
