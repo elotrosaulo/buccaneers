@@ -116,9 +116,11 @@ namespace Behaviors
                             _statusDirection = 3;
                             ChangeAnimationState(WALKDOWN);
                             break;
-                        
+                        default:
+                            _animator.speed = 0;
+                            break;
                     }
-
+ 
                     break;
             }
            
