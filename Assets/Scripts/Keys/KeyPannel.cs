@@ -10,6 +10,7 @@ public class KeyPannel : MonoBehaviour
     public int columns;
     public float xSpace;
     public float ySpace;
+    public bool keyWasFound;
     public bool isGameOver;
 
     [Header("Dialogues")]
@@ -76,6 +77,7 @@ public class KeyPannel : MonoBehaviour
         {
             Debug.Log("YOU HAVE THE RIGHT KEY!");
             key.ChangeColor(Color.green);
+            pannel.keyWasFound = true;
         }
         else
         {
@@ -83,7 +85,7 @@ public class KeyPannel : MonoBehaviour
             key.ChangeColor(Color.red);
         }
 
-        key.pannel.SendResultDialogue(key.ID, pannel);
+        pannel.SendResultDialogue(key.ID, pannel);
     }
 
     private void SendResultDialogue(int keyID, KeyPannel pannel)
