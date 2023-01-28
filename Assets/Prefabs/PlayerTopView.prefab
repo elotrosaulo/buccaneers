@@ -206,7 +206,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerId: 0
-  moveSpeed: 8
+  moveSpeed: 5
 --- !u!95 &8968937423730134444
 Animator:
   serializedVersion: 4
