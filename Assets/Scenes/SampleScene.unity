@@ -1144,12 +1144,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parent: {fileID: 1745210005}
   initPosition: {fileID: 1550248602}
-  keyPrefab: {fileID: 80082793591878995, guid: ae8021cbe24ce8d47805391c07e08618, type: 3}
+  keyPrefab: {fileID: 4428153373684498891, guid: f58846a2a3949a346981b7f1a4662f06, type: 3}
   numberOfKeys: 100
   rows: 10
   columns: 10
   xSpace: 1.8
   ySpace: 0.9
+  isGameOver: 0
   winnerDialogue:
     name: Key Master
     sentences:

@@ -1,10 +1,9 @@
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class Key : MonoBehaviour
 {
-    public Text text;
+    public TextMeshPro text;
     public int ID;
     public KeyPannel pannel;
 
