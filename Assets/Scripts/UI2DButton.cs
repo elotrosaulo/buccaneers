@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -25,8 +23,12 @@ public class UI2DButton : MonoBehaviour
 
     private void OnMouseDown()
     {
-        Debug.Log($"Hi. I'm the key {key.ID}");
-        KeyPannel.CheckKey(key.ID, key.pannel.OpenDoorKey);
+        var DialogueManager = FindObjectOfType<DialogueManager>();
+        if (!DialogueManager.isOnScreen)
+        {
+            Debug.Log($"Hi. I'm the key {key.ID}");
+            KeyPannel.CheckKey(key, key.pannel);
+        }
     }
 
     private void OnMouseEnter()

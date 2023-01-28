@@ -1,10 +1,9 @@
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class Key : MonoBehaviour
 {
-    public Text text;
+    public TextMeshPro text;
     public int ID;
     public KeyPannel pannel;
 
@@ -18,5 +17,10 @@ public class Key : MonoBehaviour
     public int GetID()
     {
         return ID;
+    }
+
+    public void ChangeColor(Color color)
+    { 
+        gameObject.GetComponent<SpriteRenderer>().material.color = color;
     }
 }
