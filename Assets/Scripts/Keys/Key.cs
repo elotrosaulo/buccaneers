@@ -1,9 +1,11 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Key : MonoBehaviour
 {
-    public TextMeshPro text;
+    public Image image;
+    public TextMeshProUGUI text;
     public int ID;
     public KeyPannel pannel;
 
@@ -21,6 +23,16 @@ public class Key : MonoBehaviour
 
     public void ChangeColor(Color color)
     { 
-        gameObject.GetComponent<SpriteRenderer>().material.color = color;
+        image.color = color;
+    }
+
+    public void OnClick()
+    {
+        var DialogueManager = FindObjectOfType<DialogueManager>();
+        if (!DialogueManager.isOnScreen)
+        {
+            Debug.Log($"Hi. I'm the key {ID}");
+            KeyPannel.CheckKey(this, pannel);
+        }
     }
 }
