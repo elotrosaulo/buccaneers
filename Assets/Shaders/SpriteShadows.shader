@@ -9,7 +9,7 @@ Shader "Sprites/Custom/SpriteShadows"
         [HideInInspector] _Flip ("Flip", Vector) = (1,1,1,1)
         [PerRendererData] _AlphaTex ("External Alpha", 2D) = "white" {}
         [PerRendererData] _EnableExternalAlpha ("Enable External Alpha", Float) = 0
-        _Cutoff("Alpha CutOff", Range(0,1)) = 0.1
+        _Cutoff("Alpha CutOff", Range(0,1)) = 0.8
     }
 
     SubShader
