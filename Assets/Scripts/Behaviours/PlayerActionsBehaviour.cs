@@ -127,8 +127,7 @@ namespace Behaviors
                     break;
             }
            
-
-            //moveVector.y = player.GetAxis("Move Vertical");
+            
             _actionAttack =_player.GetButtonDown("Action");
             if (_actionAttack && !_isAttacking)
             {
