@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class KeyPannel : MonoBehaviour
@@ -21,13 +22,14 @@ public class KeyPannel : MonoBehaviour
 
     private int openDoorKey;
     public int OpenDoorKey => openDoorKey;
+    public static Action OnKeyFound;
 
     public void Initialize()
     {
         DialogueManager.OnDialogEnded -= HidePannel;
         DialogueManager.OnDialogEnded += HidePannel;
 
-        openDoorKey = Random.Range(1, numberOfKeys + 1);
+        openDoorKey = UnityEngine.Random.Range(1, numberOfKeys + 1);
         isGameOver = false;
 
         if (!parent.gameObject.activeSelf)
@@ -68,6 +70,7 @@ public class KeyPannel : MonoBehaviour
     public void WinChallenge()
     {
         Debug.Log("YOU WIN!!! Do something!. Open the door??");
+        OnKeyFound?.Invoke();
     }
 
     public static void CheckKey(Key key, KeyPannel pannel)

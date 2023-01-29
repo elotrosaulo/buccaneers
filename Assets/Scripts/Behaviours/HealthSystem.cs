@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,7 +11,8 @@ namespace Behaviors
         [SerializeField] public int currentHealth;
         [SerializeField] public List<HealthBarBehaviour> healthBar;
 
-        private bool _waitingForDamage;
+        private bool _waitingForDamage, _stopLightDamage = true;
+
 
         private void Start()
         {
@@ -18,22 +20,37 @@ namespace Behaviors
             healthBar.ForEach(x => x.SetMaxHealth(maxHealth));
         }
 
+        private void OnEnable()
+        {
+            PlayerActionsBehaviour.OnStopLightDamage += StopLightDamage;
+        }
+        
+        private void OnDisable()
+        {
+            PlayerActionsBehaviour.OnStopLightDamage -= StopLightDamage;
+        }
 
+        private void StopLightDamage(bool shouldStopDamage)
+        {
+            _stopLightDamage = shouldStopDamage;
+        }
+        
         private void Update()
         {
-            switch (currentHealth)
+            if (!_waitingForDamage && _stopLightDamage)
             {
-                case 0:
-                    return;
-                case 1:
-                    //giving the last stretch of 10 seconds before going totally dark  
-                    StartCoroutine(ReduceHealthBySecond(10));
-                    break;
-            }
-
-            if (!_waitingForDamage && currentHealth >=0)
-            {
-                StartCoroutine(ReduceHealthBySecond(1));
+               switch (currentHealth)
+               {
+                   case 0:
+                       return;
+                   case 1:
+                       //giving the last stretch of 10 seconds before going totally dark  
+                       StartCoroutine(ReduceHealthBySecond(10));
+                       break;
+                   default:
+                       StartCoroutine(ReduceHealthBySecond(1));
+                       break;
+               }
             }
         }
         
@@ -45,7 +62,7 @@ namespace Behaviors
             _waitingForDamage = false;
         }
 
-        void TakeDamage(int damage)
+        private void TakeDamage(int damage)
         {
             currentHealth -= damage;
             healthBar.ForEach(x => x.SetHealth(currentHealth));

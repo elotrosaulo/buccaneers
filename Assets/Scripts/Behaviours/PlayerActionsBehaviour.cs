@@ -11,6 +11,8 @@ namespace Behaviors
         public int playerId; // rewired player Id of this character
         [SerializeField] 
         public float moveSpeed;
+        [SerializeField]
+        private Light _lightComponent;
         
         private Player _player;
         private float _moveDirection;
@@ -19,6 +21,7 @@ namespace Behaviors
         private Rigidbody _playerRigidBody;
         private Animator _animator;
         private string _currentState;
+
 
 
         /*Animations assigned as const*/
@@ -35,9 +38,12 @@ namespace Behaviors
         
         /*regular vars*/
         private byte _statusDirection;
-        
         /* coroutines*/
         private IEnumerator coroutine;
+        
+        /*Events*/
+        public delegate void StopLightDamage(bool shouldStopDamage);
+        public static event StopLightDamage OnStopLightDamage;
 
 
         #region MonoBehaviour Functions from unity
@@ -46,7 +52,6 @@ namespace Behaviors
             _animator = GetComponent<Animator>();
             _player = ReInput.players.GetPlayer(playerId);
             _playerRigidBody = GetComponent<Rigidbody>();
-
             var spawnPlayers = GameObject.Find("SpawnPlayers");
             if (spawnPlayers)
             {
@@ -60,7 +65,6 @@ namespace Behaviors
             {
                 ProcessMovementInput();
             }
-            
         }
 
         private void Update()
@@ -123,44 +127,19 @@ namespace Behaviors
  
                     break;
             }
-           
             
-            _isAction =_player.GetButtonDown("Action");
+            //_isAction =_player.GetButtonDown("Action");
+            _isAction = Input.GetButtonDown("Fire1");
             if (_isAction)
             {
+                var lightSwitch = !_lightComponent.gameObject.activeSelf;
+               _lightComponent.gameObject.SetActive(lightSwitch);
+               OnStopLightDamage?.Invoke(lightSwitch);
 
-
-                switch (_statusDirection)
-                {
-                    case 0:
-                        ChangeAnimationState(SLASHRIGHT);
-                        break;
-                    case 1:
-                        ChangeAnimationState(SLASHLEFT);
-                        break;
-                    case 2:
-                        ChangeAnimationState(SLASHUP);
-                        break;
-                    case 3:
-                        ChangeAnimationState(SLASHDOWN);
-                        break;
-                    default: 
-                        _animator.speed = 0;
-                        break;
-                }
-                
-                AnimatorStateInfo animState = _animator.GetCurrentAnimatorStateInfo(0);
-
-                
-                Invoke(nameof(AttackComplete), .51f);
             }
 
         }
-
-        private void AttackComplete()
-        {
-            _isAction = false;
-        }
+        
 
         private void ProcessMovementInput()
         {
