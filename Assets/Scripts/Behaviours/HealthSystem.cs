@@ -10,12 +10,23 @@ namespace Behaviors
         [SerializeField] public int maxHealth;
         [SerializeField] public int currentHealth;
         [SerializeField] public List<HealthBarBehaviour> healthBar;
+        public bool isDead;
+
+        public static Action OnHealthAtZero;
 
         private bool _waitingForDamage, _stopLightDamage = true;
 
 
         private void Start()
         {
+            GameManager.OnRestart -= Restart;
+            GameManager.OnRestart += Restart;
+            Restart();
+        }
+
+        public void Restart()
+        {
+            isDead = false;
             currentHealth = maxHealth;
             healthBar.ForEach(x => x.SetMaxHealth(maxHealth));
         }
@@ -37,11 +48,16 @@ namespace Behaviors
         
         private void Update()
         {
+            if (isDead)
+                return;
+
             if (!_waitingForDamage && _stopLightDamage)
             {
                switch (currentHealth)
                {
                    case 0:
+                       OnHealthAtZero?.Invoke();
+                       isDead = true;
                        return;
                    case 1:
                        //giving the last stretch of 10 seconds before going totally dark  
