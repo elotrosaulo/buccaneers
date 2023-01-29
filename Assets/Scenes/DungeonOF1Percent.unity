@@ -3151,6 +3151,7 @@ MonoBehaviour:
   pauseMenu: {fileID: 739004301}
   victoryMenu: {fileID: 1990508069}
   dialogueManager: {fileID: 1410520045}
+  keyPannel: {fileID: 1622195751}
 --- !u!4 &1613450631
 Transform:
   m_ObjectHideFlags: 0
@@ -3166,6 +3167,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1622195751 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6135506422922670585, guid: 0c02b67bee8c1de4f88171fa6a665b7a, type: 3}
+  m_PrefabInstance: {fileID: 815591995}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcacfdaf9ff923e418d839fe6749a880, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1623511639
 PrefabInstance:
   m_ObjectHideFlags: 0

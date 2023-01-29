@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     public PauseMenu pauseMenu;
     public VictoryMenu victoryMenu;
     public DialogueManager dialogueManager;
+    public KeyPannel keyPannel;
 
     public static Action OnRestart;
     public static Action OnVictory;
@@ -77,6 +78,6 @@ public class GameManager : MonoBehaviour
 
     public bool uiOnScreen()
     {
-        return dialogueManager.isOnScreen || pauseMenu.isPaused || victoryMenu.victoryMenuUI.activeSelf;
+        return dialogueManager.isOnScreen || pauseMenu.isPaused || victoryMenu.victoryMenuUI.activeSelf || keyPannel.isOnScreen;
     }
 }
