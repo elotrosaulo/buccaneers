@@ -15,6 +15,7 @@ public class VictoryMenu : MonoBehaviour
     private void SetVictory()
     {
         Time.timeScale = 0f;
+        victoryMenuUI.SetActive(true);
     }
 
     public void LoadMenu()
