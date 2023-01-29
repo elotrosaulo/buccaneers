@@ -1,3 +1,4 @@
+using Behaviors;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -7,15 +8,30 @@ public class FollowPlayer : MonoBehaviour
     public Transform target;
 
     private NavMeshAgent nav;
-    // Start is called before the first frame update
+    private void OnEnable()
+    {
+        PlayerActionsBehaviour.OnStopLightDamage += StopLight;
+    }
+        
+    private void OnDisable()
+    {
+        PlayerActionsBehaviour.OnStopLightDamage -= StopLight;
+    }
+    
     void Start()
     {
         nav = GetComponent<NavMeshAgent>();
     }
 
-    // Update is called once per frame
+
     void Update()
     {
+       
         nav.SetDestination(target.position);
+    }
+
+    private void StopLight(bool shouldStop)
+    {
+        nav.stoppingDistance = shouldStop ? 8f : 0f;
     }
 }
