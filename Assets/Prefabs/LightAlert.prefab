@@ -107,8 +107,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5d0cc4fe5d563e47ba694c8a6b8ad63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  intensity: 2.5
-  speedBlink: 1
+  intensity: 6.5
+  speedBlink: 4.5
 --- !u!1 &9119753150477655296
 GameObject:
   m_ObjectHideFlags: 0
