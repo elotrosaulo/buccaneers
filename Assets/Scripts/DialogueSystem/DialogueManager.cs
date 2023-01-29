@@ -27,11 +27,11 @@ public class DialogueManager : MonoBehaviour
         sentences = new Queue<string>();
     }
 
-    public void StartDialogue(Dialogue dialogue, bool showActionAtEndDialogue = false, string actionText = "", ActionType actionType = ActionType.None, string replaceText = "")
+    public void StartDialogue(Dialogue dialogue, bool showActionAtEndDialogue = false, string actionButtonText = "", ActionType actionType = ActionType.None, string replaceText = "")
     {
 
         isOnScreen = true;
-        actionButtonText.text = actionText;
+        this.actionButtonText.text = actionButtonText;
         actionButton.onClick.AddListener(() => CallAction(actionType));
         actionButton.gameObject.SetActive(false);
         this.replaceText = replaceText;
@@ -44,7 +44,6 @@ public class DialogueManager : MonoBehaviour
         { 
             sentences.Enqueue(sentence);
         }
-
         DisplayNextSentence(showActionAtEndDialogue);
     }
 
@@ -93,6 +92,7 @@ public class DialogueManager : MonoBehaviour
         None = 0,
         ResetKeyPannel = 1,
         WinChallenge = 2,
+        OpenMiniGame = 3,
     }
 
     public void CallAction(ActionType type)
@@ -106,6 +106,9 @@ public class DialogueManager : MonoBehaviour
                 break;
             case ActionType.WinChallenge:
                 WinChallenge();
+                break;
+            case ActionType.OpenMiniGame:
+                OpenMiniGame();
                 break;
         }
     }
@@ -122,6 +125,14 @@ public class DialogueManager : MonoBehaviour
         var pannel = FindObjectOfType<KeyPannel>();
         pannel.WinChallenge();
         EndDialogue();
+    }
+
+    private void OpenMiniGame()
+    {
+        var pannel = FindObjectOfType<KeyPannel>();
+        pannel.Initialize();
+        EndDialogue();
+        pannel.GetComponent<DialogueTrigger>().TriggerDialogue();
     }
     #endregion
 }
