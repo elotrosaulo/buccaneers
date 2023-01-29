@@ -20,6 +20,9 @@ public class KeyPannel : MonoBehaviour
     public Dialogue looserDialogue;
     public string looseButtonText;
 
+    [Header("Scape Tilemap")]
+    public GameObject scapeTilemapGO;
+
     private int openDoorKey;
     public int OpenDoorKey => openDoorKey;
     public static Action OnKeyFound;
@@ -71,6 +74,7 @@ public class KeyPannel : MonoBehaviour
     {
         Debug.Log("YOU WIN!!! Do something!. Open the door??");
         OnKeyFound?.Invoke();
+        scapeTilemapGO.SetActive(true);
     }
 
     public static void CheckKey(Key key, KeyPannel pannel)
