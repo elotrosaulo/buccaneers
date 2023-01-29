@@ -89,6 +89,7 @@ public class KeyPannel : MonoBehaviour
             key.ChangeColor(Color.green);
             pannel.keyWasFound = true;
             AudioManager.PlaySound(AudioManager.Sound.rightSelection, false);
+            pannel.WinChallenge();
         }
         else
         {
