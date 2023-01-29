@@ -83,6 +83,9 @@ namespace Behaviors
         private IEnumerator ReduceHealthBySecond(float waitTime)
         {
             _waitingForDamage = true;
+            if(waitTime == 10f)
+                AudioManager.PlaySound(AudioManager.Sound.PlayerOnePercent, false);
+            
             yield return new WaitForSeconds( waitTime );
             TakeDamage(1);
             _waitingForDamage = false;
