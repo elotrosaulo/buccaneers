@@ -2087,13 +2087,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 195433017173346306, guid: 596b6f323f0c63c438970041c9cfa286, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 195433017173346307, guid: 596b6f323f0c63c438970041c9cfa286, type: 3}
       propertyPath: m_Name
       value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 195433017173346307, guid: 596b6f323f0c63c438970041c9cfa286, type: 3}
-      propertyPath: m_IsActive
-      value: 0
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 195433017173346311, guid: 596b6f323f0c63c438970041c9cfa286, type: 3}
       propertyPath: m_RootOrder
