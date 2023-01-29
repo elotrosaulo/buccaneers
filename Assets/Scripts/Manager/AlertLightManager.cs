@@ -15,6 +15,6 @@ public class AlertLightManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        myLight.intensity = Mathf.PingPong(Time.time, 2);
+        myLight.intensity = Mathf.PingPong(Time.time, 2.5f);
     }
 }
