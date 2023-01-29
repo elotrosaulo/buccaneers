@@ -47,12 +47,20 @@ public class GameManager : MonoBehaviour
         StartCoroutine(Restart());
     }
 
-    private IEnumerator Restart()
+    public void RestartFromMenu()
     {
-        yield return new WaitForSecondsRealtime(secondsBeforeRestart);
+        StartCoroutine(Restart(0f));
+    }
+
+    private IEnumerator Restart(float time = -1)
+    {
+        if (time == -1)
+            time = secondsBeforeRestart;
+        
+        yield return new WaitForSecondsRealtime(time);
+        
         OnHealthAtZero?.Invoke();
         OnRestart?.Invoke();
-        
     }
 
     public void Victory() 
@@ -69,6 +77,6 @@ public class GameManager : MonoBehaviour
 
     public bool uiOnScreen()
     {
-        return dialogueManager.isOnScreen || pauseMenu.isPaused;
+        return dialogueManager.isOnScreen || pauseMenu.isPaused || victoryMenu.victoryMenuUI.activeSelf;
     }
 }

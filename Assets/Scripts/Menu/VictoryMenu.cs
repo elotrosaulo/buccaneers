@@ -18,6 +18,13 @@ public class VictoryMenu : MonoBehaviour
         victoryMenuUI.SetActive(true);
     }
 
+    public void RestartGame()
+    {
+        Time.timeScale = 1f;
+        victoryMenuUI.SetActive(false);
+        GameManager.instance.RestartFromMenu();
+    }
+
     public void LoadMenu()
     {
         Time.timeScale = 1f;
