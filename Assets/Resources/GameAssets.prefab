@@ -46,18 +46,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soundAudioClips:
   - sound: 1
-    audioclip: {fileID: 0}
+    audioclip: {fileID: 8300000, guid: 51372024e75645442a75895f16d37062, type: 3}
   - sound: 2
-    audioclip: {fileID: 0}
+    audioclip: {fileID: 8300000, guid: 0c0bbbae2df0d5742bb604c645189587, type: 3}
   - sound: 3
-    audioclip: {fileID: 0}
+    audioclip: {fileID: 8300000, guid: 1ccab349bbe86b3499bdc92a98ec49d5, type: 3}
   - sound: 4
-    audioclip: {fileID: 0}
-  - sound: 5
-    audioclip: {fileID: 0}
+    audioclip: {fileID: 8300000, guid: 1ccab349bbe86b3499bdc92a98ec49d5, type: 3}
   - sound: 10
-    audioclip: {fileID: 0}
+    audioclip: {fileID: 8300000, guid: 1ccab349bbe86b3499bdc92a98ec49d5, type: 3}
   - sound: 11
-    audioclip: {fileID: 0}
+    audioclip: {fileID: 8300000, guid: 1ccab349bbe86b3499bdc92a98ec49d5, type: 3}
   - sound: 12
-    audioclip: {fileID: 0}
+    audioclip: {fileID: 8300000, guid: b2f8cae127e3fb44dbdd1581a573a965, type: 3}
+  - sound: 13
+    audioclip: {fileID: 8300000, guid: 38400875f84793a41941f3141e21baf3, type: 3}
+  - sound: 14
+    audioclip: {fileID: 8300000, guid: 251d5518ddaa91549abdc09e43443b36, type: 3}
+  - sound: 5
+    audioclip: {fileID: 8300000, guid: 1ccab349bbe86b3499bdc92a98ec49d5, type: 3}

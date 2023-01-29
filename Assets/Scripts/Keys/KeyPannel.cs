@@ -81,11 +81,13 @@ public class KeyPannel : MonoBehaviour
             Debug.Log("YOU HAVE THE RIGHT KEY!");
             key.ChangeColor(Color.green);
             pannel.keyWasFound = true;
+            AudioManager.PlaySound(AudioManager.Sound.rightSelection, false);
         }
         else
         {
             Debug.Log($"Wrong key... the right one is {openDoorKey}");
             key.ChangeColor(Color.red);
+            AudioManager.PlaySound(AudioManager.Sound.wrongSelection, false);
         }
 
         pannel.SendResultDialogue(key.ID, pannel);

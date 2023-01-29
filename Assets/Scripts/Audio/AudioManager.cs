@@ -7,14 +7,16 @@ public class AudioManager
     {
         None = 0,
         PlayerMove = 1,
-        PlayerRun = 2,
-        PlayerDamaged = 3,
-        PlayerOnePercent = 4,
-        PlayerDied = 5,
+        PlayerDamaged = 2,
+        PlayerOnePercent = 3,
+        PlayerDied = 4,
+        LightSwitch = 5,
 
         GameRestart = 10,
         MainMenu = 11,
         Background = 12,
+        rightSelection = 13,
+        wrongSelection = 14,
     }
 
     private static Dictionary<Sound, float> soundTimerDictionary;
@@ -25,7 +27,7 @@ public class AudioManager
     }
 
     /// <summary>
-    /// To be called from any part in the game where sound is needed. Example: SoundManager.PlaySound(SoundManager.Sound.PlayerMove, false);
+    /// To be called from any part in the game where sound is needed. Example: AudioManager.PlaySound(AudioManager.Sound.rightSelection, false);
     /// </summary>
     public static void PlaySound(Sound sound, bool isLoop = false)
     {
@@ -38,7 +40,8 @@ public class AudioManager
             else
                 audioSource.loop = false;
 
-            audioSource.PlayOneShot(GetAudioClip(sound));
+            audioSource.clip = GetAudioClip(sound);
+            audioSource.Play();
         }
     }
 
@@ -67,7 +70,7 @@ public class AudioManager
                 if (soundTimerDictionary.ContainsKey(sound))
                 {
                     float lastTimePlayed = soundTimerDictionary[sound];
-                    float playerMoveTimeMax = .05f;
+                    float playerMoveTimeMax = 0.25f; // walkspeed-ish
                     if (lastTimePlayed + playerMoveTimeMax < Time.time)
                     {
                         soundTimerDictionary[sound] = Time.time;
