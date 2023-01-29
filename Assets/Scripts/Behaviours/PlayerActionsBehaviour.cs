@@ -130,7 +130,7 @@ namespace Behaviors
  
                     break;
             }
-            
+
             //_isAction =_player.GetButtonDown("Action");
             _isAction = Input.GetButtonDown("Fire1");
             if (_isAction && !GameManager.instance.uiOnScreen())
@@ -138,6 +138,7 @@ namespace Behaviors
                 var lightSwitch = !_lightComponent.gameObject.activeSelf;
                 _lightComponent.gameObject.SetActive(lightSwitch);
                 OnStopLightDamage?.Invoke(lightSwitch);
+                AudioManager.PlaySound(AudioManager.Sound.LightSwitch, false);
             }
 
         }
@@ -153,6 +154,7 @@ namespace Behaviors
         // change the animation and reassign the current one
         private void ChangeAnimationState(string newState)
         {
+            AudioManager.PlaySound(AudioManager.Sound.PlayerMove, false);
             _animator.speed = 1;
             if (_currentState == newState) return;
             
