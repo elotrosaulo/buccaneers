@@ -362,7 +362,7 @@ TextureImporter:
         serializedVersion: 2
         x: 384
         y: 480
-        width: 32
+        width: 96
         height: 32
       alignment: 9
       pivot: {x: 0, y: 0}
@@ -969,10 +969,10 @@ TextureImporter:
       name: 5Ec0flD_41
       rect:
         serializedVersion: 2
-        x: 288
-        y: 416
-        width: 32
-        height: 32
+        x: 256
+        y: 384
+        width: 64
+        height: 64
       alignment: 9
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -5519,13 +5519,13 @@ TextureImporter:
       5Ec0flD_17: -1530594283
       5Ec0flD_100: 826489171
       5Ec0flD_84: -868024962
-      5Ec0flD_123: -1285414579
+      5Ec0flD_175: -1841465147
       5Ec0flD_3: 1698938832
       5Ec0flD_91: 197426773
-      5Ec0flD_175: -1841465147
       5Ec0flD_197: -741953183
-      5Ec0flD_42: 2041962214
+      5Ec0flD_123: -1285414579
       5Ec0flD_89: 2121011469
+      5Ec0flD_42: 2041962214
       5Ec0flD_119: 543166721
       5Ec0flD_233: -1709633224
       5Ec0flD_232: -1448324902
@@ -5607,6 +5607,7 @@ TextureImporter:
       5Ec0flD_200: -1466682248
       5Ec0flD_224: 669371182
       5Ec0flD_51: -1836456071
+      5Ec0flD_184: 205258281
       5Ec0flD_99: -524716584
       5Ec0flD_152: -1884686185
       5Ec0flD_174: 1884557883
@@ -5619,7 +5620,6 @@ TextureImporter:
       5Ec0flD_64: -237349808
       5Ec0flD_173: -96206210
       5Ec0flD_8: -2102146579
-      5Ec0flD_184: 205258281
       5Ec0flD_98: -735956377
       5Ec0flD_182: -367487544
       5Ec0flD_85: 1642476800
@@ -5642,12 +5642,12 @@ TextureImporter:
       5Ec0flD_76: -444790865
       5Ec0flD_57: 1714181085
       5Ec0flD_115: 2055050711
-      5Ec0flD_136: 122840188
-      5Ec0flD_199: 1921463829
       5Ec0flD_178: 826153419
+      5Ec0flD_199: 1921463829
+      5Ec0flD_249: -1655739223
       5Ec0flD_221: -162039889
       5Ec0flD_131: -1814772994
-      5Ec0flD_249: -1655739223
+      5Ec0flD_136: 122840188
       5Ec0flD_251: 477602372
       5Ec0flD_104: 294217570
       5Ec0flD_208: -1363705505
