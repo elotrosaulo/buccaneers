@@ -1789,7 +1789,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 006b413caf0f0b0408a21280727b0523, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  secondsBeforeRestart: 0
+  secondsBeforeRestart: 2
   pauseMenu: {fileID: 739004301}
   victoryMenu: {fileID: 1990508069}
   dialogueManager: {fileID: 1410520045}
