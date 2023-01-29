@@ -6,7 +6,6 @@ public class MagicDoor : MonoBehaviour
 
     void Start()
     {
-        doorGO.SetActive(true);
         KeyPannel.OnKeyFound -= HideTheDoor;
         KeyPannel.OnKeyFound += HideTheDoor;
     }
@@ -14,6 +13,7 @@ public class MagicDoor : MonoBehaviour
     private void HideTheDoor()
     { 
         // HIDE THE DOOR!
-        doorGO.SetActive(false);
+        doorGO.transform.position = new Vector3(0,0,5);
+        Debug.Log("hide the door");
     }
 }
