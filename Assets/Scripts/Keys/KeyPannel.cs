@@ -34,6 +34,7 @@ public class KeyPannel : MonoBehaviour
         DialogueManager.OnDialogEnded += HidePannel;
 
         openDoorKey = UnityEngine.Random.Range(1, numberOfKeys + 1);
+        Debug.Log($"FOR TESTING PURPOSES: The right key is {openDoorKey}");
         isGameOver = false;
 
         if (!parent.gameObject.activeSelf)
