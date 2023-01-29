@@ -1867,6 +1867,10 @@ PrefabInstance:
       propertyPath: m_BaseOffset
       value: 0.51
       objectReference: {fileID: 0}
+    - target: {fileID: 195433017897212075, guid: 596b6f323f0c63c438970041c9cfa286, type: 3}
+      propertyPath: m_StoppingDistance
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 6228126712968643697, guid: 596b6f323f0c63c438970041c9cfa286, type: 3}
       propertyPath: target
       value: 
