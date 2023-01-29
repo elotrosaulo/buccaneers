@@ -98,9 +98,10 @@ GameObject:
   - component: {fileID: 8420303990313494627}
   - component: {fileID: 312375763}
   - component: {fileID: 312375762}
-  - component: {fileID: 8968937423730134444}
+  - component: {fileID: 312375772}
+  - component: {fileID: 692325847}
   m_Layer: 0
-  m_Name: PlayerTopView
+  m_Name: RobotPrefab
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -115,7 +116,7 @@ Transform:
   m_GameObject: {fileID: 1050239784658099781}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -5.1213, y: -3.656, z: 0}
-  m_LocalScale: {x: 1.9488, y: 1.7716, z: 1}
+  m_LocalScale: {x: 4, y: 4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1925729403}
@@ -235,9 +236,23 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.23024213, y: 0.25655526, z: 2.3281662}
-  m_Center: {x: -0.024668256, y: -0.10640435, z: -0.71700805}
---- !u!95 &8968937423730134444
+  m_Size: {x: 0.21869886, y: 0.41541386, z: 1.673553}
+  m_Center: {x: 0.00017422438, y: -0.0023970604, z: -0.45113856}
+--- !u!136 &312375772
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1050239784658099781}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.07444459
+  m_Height: 0.20416212
+  m_Direction: 1
+  m_Center: {x: 0.019689977, y: -0.092204094, z: 0}
+--- !u!95 &692325847
 Animator:
   serializedVersion: 4
   m_ObjectHideFlags: 0
