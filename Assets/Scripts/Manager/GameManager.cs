@@ -36,7 +36,8 @@ public class GameManager : MonoBehaviour
     {
         HealthSystem.OnEnemyGrab -= GameOver;
         HealthSystem.OnEnemyGrab += GameOver;
-        
+
+        AudioManager.Initialize();
         AudioManager.PlaySound(AudioManager.Sound.Background, true);
     }
 
