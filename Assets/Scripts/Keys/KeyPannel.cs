@@ -13,6 +13,7 @@ public class KeyPannel : MonoBehaviour
     public float ySpace;
     public bool keyWasFound;
     public bool isGameOver;
+    public bool isOnScreen;
 
     [Header("Dialogues")]
     public Dialogue winnerDialogue;
@@ -58,6 +59,7 @@ public class KeyPannel : MonoBehaviour
     public void ShowPannel(bool value)
     {
         parent.gameObject.SetActive(value);
+        isOnScreen = value;
     }
 
     public void Reset()
