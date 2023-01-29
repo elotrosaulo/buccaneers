@@ -71,7 +71,7 @@ namespace Behaviors
             }
         }
 
-        private void OnTriggerStay(Collider other)
+        private void OnCollisionStay(Collision other)
         {
             if (other.gameObject.CompareTag("Enemy"))
             {
