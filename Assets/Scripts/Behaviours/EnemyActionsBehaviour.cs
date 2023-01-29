@@ -4,6 +4,7 @@ namespace Behaviors
 {
     public class EnemyActionsBehaviour : MonoBehaviour
     {
+        public Transform enemy;
         private Animator _animator;
         private string _currentState;
         private Vector3 _moveVector;
@@ -12,12 +13,21 @@ namespace Behaviors
         private const string WALKRIGHT = "walkRight";
         private const string WALKUP = "walkUp";
         private const string WALKDOWN = "walkDown";
-
+        private Vector3 _startingPosition;
         private void Start()
         {
+            GameManager.OnRestart -= Restart;
+            GameManager.OnRestart += Restart;
             _animator = GetComponent<Animator>();
+            _startingPosition = transform.position;
         }
 
+        private void Restart()
+        {
+            transform.position = _startingPosition;
+            enemy.position = _startingPosition;
+        }
+        
         private void Update()
         {
             _moveVector = transform.position;
