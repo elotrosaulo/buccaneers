@@ -26,7 +26,6 @@ public class FollowPlayer : MonoBehaviour
 
     void Update()
     {
-       
         nav.SetDestination(target.position);
     }
 

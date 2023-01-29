@@ -13,6 +13,7 @@ namespace Behaviors
         public bool isDead;
 
         public static Action OnHealthAtZero;
+        public static Action OnEnemyGrab;
 
         private bool _waitingForDamage, _stopLightDamage = true;
 
@@ -57,7 +58,7 @@ namespace Behaviors
                {
                    case 0:
                        OnHealthAtZero?.Invoke();
-                       isDead = true;
+
                        return;
                    case 1:
                        //giving the last stretch of 10 seconds before going totally dark  
@@ -69,7 +70,16 @@ namespace Behaviors
                }
             }
         }
-        
+
+        private void OnTriggerStay(Collider other)
+        {
+            if (other.gameObject.CompareTag("Enemy"))
+            {
+                OnEnemyGrab?.Invoke();
+                isDead = true;
+            }
+        }
+
         private IEnumerator ReduceHealthBySecond(float waitTime)
         {
             _waitingForDamage = true;
