@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     public static Action OnRestart;
     public static Action OnVictory;
     public static Action OnExit;
+    public static Action OnHealthAtZero;
     public static GameManager instance
     {
         get; private set; 
@@ -33,8 +34,8 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        HealthSystem.OnHealthAtZero -= GameOver;
-        HealthSystem.OnHealthAtZero += GameOver;
+        HealthSystem.OnEnemyGrab -= GameOver;
+        HealthSystem.OnEnemyGrab += GameOver;
     }
 
     public void GameOver() 
@@ -46,7 +47,9 @@ public class GameManager : MonoBehaviour
     private IEnumerator Restart()
     {
         yield return new WaitForSecondsRealtime(secondsBeforeRestart);
+        OnHealthAtZero?.Invoke();
         OnRestart?.Invoke();
+        
     }
 
     public void Victory() 

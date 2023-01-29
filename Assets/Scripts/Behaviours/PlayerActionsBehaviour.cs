@@ -59,11 +59,15 @@ namespace Behaviors
 
             GameManager.OnRestart -= Restart;
             GameManager.OnRestart += Restart;
+            HealthSystem.OnHealthAtZero -= TurnOffLights;
+            HealthSystem.OnHealthAtZero += TurnOffLights;
         }
 
         private void Restart()
         {
             _playerRigidBody.position = _startingPosition;
+            _lightComponent.gameObject.SetActive(true);
+            OnStopLightDamage?.Invoke(true);
         }
 
         private void FixedUpdate()
@@ -132,13 +136,11 @@ namespace Behaviors
             if (_isAction && !GameManager.instance.uiOnScreen())
             {
                 var lightSwitch = !_lightComponent.gameObject.activeSelf;
-               _lightComponent.gameObject.SetActive(lightSwitch);
-               OnStopLightDamage?.Invoke(lightSwitch);
-
+                _lightComponent.gameObject.SetActive(lightSwitch);
+                OnStopLightDamage?.Invoke(lightSwitch);
             }
 
         }
-        
 
         private void ProcessMovementInput()
         {
@@ -157,6 +159,12 @@ namespace Behaviors
             _animator.Play(newState);
 
             _currentState = newState;
+        }
+
+        private void TurnOffLights()
+        {
+            _lightComponent.gameObject.SetActive(false);
+            OnStopLightDamage?.Invoke(false);
         }
         
     }
