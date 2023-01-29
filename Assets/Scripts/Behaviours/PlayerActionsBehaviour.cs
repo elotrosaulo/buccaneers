@@ -36,8 +36,6 @@ namespace Behaviors
         private const string SLASHRIGHT = "slashRight";
         private const string SLASHLEFT = "slashLeft";
         
-        /*regular vars*/
-        private byte _statusDirection;
         /* coroutines*/
         private IEnumerator coroutine;
         
@@ -90,43 +88,35 @@ namespace Behaviors
             /*moveVector.x = player.GetAxis("Move Horizontal");
             moveVector.y = player.GetAxis("Vertical");*/
             _moveVector = Vector3.zero;
-            _moveVector.x = Input.GetAxis("Horizontal");
-            _moveVector.y = Input.GetAxis("Vertical");
+            _moveVector.x = Input.GetAxisRaw("Horizontal");
+            _moveVector.z = Input.GetAxisRaw("Vertical");
             switch (_moveVector.x)
             {
-                case > 0 when _moveVector.y is 0: // movimiento horizontal
-                    _statusDirection = 0;
+                case > 0 when _moveVector.z is 0: // movimiento horizontal
                     ChangeAnimationState(WALKRIGHT);
                     break;
-                case < 0 when _moveVector.y is 0: // movimiento horizontal
-                    _statusDirection = 1;
+                case < 0 when _moveVector.z is 0: // movimiento horizontal
                     ChangeAnimationState(WALKLEFT);
                     break;
-                case > 0 when _moveVector.y is > 0: // movimiento vertical/ horizontal derecha direccion arriba
-                    _statusDirection = 2;
+                case > 0 when _moveVector.z is > 0: // movimiento vertical/ horizontal derecha direccion arriba
                     ChangeAnimationState(WALKUP);
                     break;
-                case < 0 when _moveVector.y is > 0: // movimiento vertical/ horizontal izquierda direccion arriba
-                    _statusDirection = 2;
+                case < 0 when _moveVector.z is > 0: // movimiento vertical/ horizontal izquierda direccion arriba
                     ChangeAnimationState(WALKUP);
                     break;
-                case > 0 when _moveVector.y is < 0: // movimiento vertical/ horizontal derecha direccion abajo
-                    _statusDirection = 0;
+                case > 0 when _moveVector.z is < 0: // movimiento vertical/ horizontal derecha direccion abajo
                     ChangeAnimationState(WALKRIGHT);
                     break;
-                case < 0 when _moveVector.y is < 0: // movimiento vertical/ horizontal derecha direccion abajo
-                    _statusDirection = 1;
+                case < 0 when _moveVector.z is < 0: // movimiento vertical/ horizontal derecha direccion abajo
                     ChangeAnimationState(WALKLEFT);
                     break;
                 default:
-                    switch (_moveVector.y)
+                    switch (_moveVector.z)
                     {
                         case > 0 when _moveVector.x is 0: // movimiento arriba
-                            _statusDirection = 2;
                             ChangeAnimationState(WALKUP);
                             break;
                         case < 0 when _moveVector.x is 0: // movimiento abajo
-                            _statusDirection = 3;
                             ChangeAnimationState(WALKDOWN);
                             break;
                         default:
@@ -153,7 +143,7 @@ namespace Behaviors
         private void ProcessMovementInput()
         {
             _playerRigidBody.MovePosition(
-                transform.position + _moveVector * (moveSpeed * Time.deltaTime));
+                transform.position + _moveVector * (moveSpeed * Time.fixedDeltaTime));
         }
 
         #endregion
