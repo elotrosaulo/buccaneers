@@ -61,6 +61,8 @@ namespace Behaviors
             GameManager.OnRestart += Restart;
             HealthSystem.OnHealthAtZero -= TurnOffLights;
             HealthSystem.OnHealthAtZero += TurnOffLights;
+            GameManager.OnVictory -= TurnOnLights;
+            GameManager.OnVictory += TurnOnLights;
         }
 
         private void Restart()
@@ -168,6 +170,12 @@ namespace Behaviors
             _lightComponent.gameObject.SetActive(false);
             OnStopLightDamage?.Invoke(false);
         }
-        
+
+        private void TurnOnLights()
+        {
+            _lightComponent.gameObject.SetActive(true);
+            OnStopLightDamage?.Invoke(true);
+        }
+
     }
 }
