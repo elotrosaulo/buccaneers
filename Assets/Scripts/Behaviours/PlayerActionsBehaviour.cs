@@ -1,5 +1,6 @@
 using System.Collections;
 using Rewired;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Behaviors
@@ -21,8 +22,7 @@ namespace Behaviors
         private Rigidbody _playerRigidBody;
         private Animator _animator;
         private string _currentState;
-
-
+        private Vector2 _startingPosition;
 
         /*Animations assigned as const*/
         private const string JUMP = "jump";
@@ -50,11 +50,20 @@ namespace Behaviors
             _animator = GetComponent<Animator>();
             _player = ReInput.players.GetPlayer(playerId);
             _playerRigidBody = GetComponent<Rigidbody>();
+            _startingPosition = _playerRigidBody.position;
             var spawnPlayers = GameObject.Find("SpawnPlayers");
             if (spawnPlayers)
             {
                 transform.parent = spawnPlayers.transform;
             }
+
+            GameManager.OnRestart -= Restart;
+            GameManager.OnRestart += Restart;
+        }
+
+        private void Restart()
+        {
+            _playerRigidBody.position = _startingPosition;
         }
 
         private void FixedUpdate()
@@ -120,7 +129,7 @@ namespace Behaviors
             
             //_isAction =_player.GetButtonDown("Action");
             _isAction = Input.GetButtonDown("Fire1");
-            if (_isAction)
+            if (_isAction && !GameManager.instance.uiOnScreen())
             {
                 var lightSwitch = !_lightComponent.gameObject.activeSelf;
                _lightComponent.gameObject.SetActive(lightSwitch);
