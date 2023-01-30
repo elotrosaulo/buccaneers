@@ -12,11 +12,13 @@ public class RobotAnimVictory : MonoBehaviour
     private int m_IndexSprite;
     Coroutine m_CorotineAnim;    
     bool IsDone;   
+    
     private void Start() {
         Func_PlayUIAnim();
     }
     public void Func_PlayUIAnim()
     { 
+        Debug.Log("victory");
         IsDone = false;
         m_CorotineAnim = StartCoroutine(Func_PlayAnimUI());
     }      
