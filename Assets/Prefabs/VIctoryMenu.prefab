@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6175720875774566053}
   - component: {fileID: 7561201068438354681}
   - component: {fileID: 9141345860098852904}
-  - component: {fileID: 5619517050905970223}
+  - component: {fileID: 1845504905144025065}
   m_Layer: 5
   m_Name: Robot
   m_TagString: Untagged
@@ -46,7 +46,7 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 21418976630234255}
-  m_CullTransparentMesh: 1
+  m_CullTransparentMesh: 0
 --- !u!114 &9141345860098852904
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63,7 +63,7 @@ MonoBehaviour:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
+  m_Maskable: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -77,7 +77,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &5619517050905970223
+--- !u!114 &1845504905144025065
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -89,8 +89,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1848cbda69ef924ca787c051885de44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Image: {fileID: 9141345860098852904}
-  m_SpriteArray:
+  frames:
   - {fileID: 202180837, guid: c270ebdd8a4d7e6438889d6f9aa2ae1e, type: 3}
   - {fileID: 202180837, guid: c270ebdd8a4d7e6438889d6f9aa2ae1e, type: 3}
   - {fileID: 202180837, guid: c270ebdd8a4d7e6438889d6f9aa2ae1e, type: 3}
@@ -103,7 +102,11 @@ MonoBehaviour:
   - {fileID: -1092252730, guid: c270ebdd8a4d7e6438889d6f9aa2ae1e, type: 3}
   - {fileID: -1092252730, guid: c270ebdd8a4d7e6438889d6f9aa2ae1e, type: 3}
   - {fileID: -1092252730, guid: c270ebdd8a4d7e6438889d6f9aa2ae1e, type: 3}
-  m_Speed: 0.02
+  - {fileID: -1933853527, guid: c270ebdd8a4d7e6438889d6f9aa2ae1e, type: 3}
+  - {fileID: -1933853527, guid: c270ebdd8a4d7e6438889d6f9aa2ae1e, type: 3}
+  - {fileID: -1933853527, guid: c270ebdd8a4d7e6438889d6f9aa2ae1e, type: 3}
+  - {fileID: -1933853527, guid: c270ebdd8a4d7e6438889d6f9aa2ae1e, type: 3}
+  framesPerSecond: 25
 --- !u!1 &5063300996634115584
 GameObject:
   m_ObjectHideFlags: 0
@@ -694,7 +697,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   victoryMenuUI: {fileID: 8767487207195487693}
-  Robot: {fileID: 5619517050905970223}
 --- !u!1 &8767487207142414053
 GameObject:
   m_ObjectHideFlags: 0
@@ -985,7 +987,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &8767487207195487692
 RectTransform:
   m_ObjectHideFlags: 0
