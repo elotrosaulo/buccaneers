@@ -6,6 +6,9 @@ public class DoorGuard : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        FindObjectOfType<DialogueManager>().StartDialogue(dialogue, true, "Try Your Luck", DialogueManager.ActionType.OpenMiniGame);
+        if (other.gameObject.CompareTag("Player"))
+        {
+            FindObjectOfType<DialogueManager>().StartDialogue(dialogue, true, "Try Your Luck", DialogueManager.ActionType.OpenMiniGame);
+        }
     }
 }
