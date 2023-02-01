@@ -2,24 +2,41 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 
 
 public class RobotAnimVictory : MonoBehaviour
 {
-    public Sprite[] frames;
-    public float framesPerSecond = 10;
-    private Image image;
-
-    private void Start()
-    {
-        image = GetComponent<Image>();
+    public Image m_Image;
+    public Sprite[] m_SpriteArray;
+    public float m_Speed = 0.02f;
+    private int m_IndexSprite;
+    Coroutine m_CorotineAnim;    
+    bool IsDone;   
+    
+    private void Start() {
+        Func_PlayUIAnim();
     }
-
-    private void Update()
+    public void Func_PlayUIAnim()
+    { 
+        Debug.Log("victory");
+        IsDone = false;
+        m_CorotineAnim = StartCoroutine(Func_PlayAnimUI());
+    }      
+    public void Func_StopUIAnim()
+    {      
+        IsDone = true;  
+        StopCoroutine(m_CorotineAnim); 
+    }
+    IEnumerator Func_PlayAnimUI()
     {
-        Debug.Log("gif");
-        int index = (int)(Time.time * framesPerSecond) % frames.Length;
-        image.sprite = frames[index];
+            yield return new WaitForSeconds(m_Speed);
+            if (m_IndexSprite >= m_SpriteArray.Length)
+            {
+                m_IndexSprite = 0;
+            }
+            m_Image.sprite = m_SpriteArray[m_IndexSprite];
+            m_IndexSprite += 1;
+            if (IsDone == false)
+                m_CorotineAnim = StartCoroutine(Func_PlayAnimUI());
     }
 }

@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 public class VictoryMenu : MonoBehaviour
 {
     public GameObject victoryMenuUI;
+    public RobotAnimVictory Robot;
 
     private void Start()
     {
@@ -13,8 +14,9 @@ public class VictoryMenu : MonoBehaviour
 
     private void SetVictory()
     {
-        //Time.timeScale = 0f;
+        Time.timeScale = 0f;
         victoryMenuUI.SetActive(true);
+        Robot.Func_PlayUIAnim();
     }
 
     public void RestartGame()
