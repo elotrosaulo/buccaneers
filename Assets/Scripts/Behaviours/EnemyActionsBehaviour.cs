@@ -14,8 +14,12 @@ namespace Behaviors
         private const string WALKUP = "walkUp";
         private const string WALKDOWN = "walkDown";
         private Vector3 _startingPosition;
+        private bool followPlayer = true;
+
         private void Start()
         {
+            GameManager.OnVictory -= StopFollowingPlayer;
+            GameManager.OnVictory += StopFollowingPlayer;
             GameManager.OnRestart -= Restart;
             GameManager.OnRestart += Restart;
             _animator = GetComponent<Animator>();
@@ -26,10 +30,20 @@ namespace Behaviors
         {
             transform.position = _startingPosition;
             enemy.position = _startingPosition;
+            followPlayer = true;
         }
+
+        private void StopFollowingPlayer()
+        {
+            followPlayer = false;    
+        }
+
         
         private void Update()
         {
+            if (!followPlayer)
+                return;
+
             _moveVector = transform.position;
             switch (_moveVector.x)
             {
