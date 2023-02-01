@@ -5,7 +5,6 @@ public class VictoryMenu : MonoBehaviour
 {
     public GameObject victoryMenuUI;
 
-
     private void Start()
     {
         GameManager.OnVictory -= SetVictory;
