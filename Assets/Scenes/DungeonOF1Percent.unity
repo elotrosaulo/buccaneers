@@ -201,7 +201,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 25
+  m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!224 &127087289
 RectTransform:
@@ -3225,7 +3225,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5336974077321365430, guid: c15441cf06a38e14c815ece27ef0e013, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5336974077321365430, guid: c15441cf06a38e14c815ece27ef0e013, type: 3}
       propertyPath: m_SortingOrder
@@ -3573,18 +3573,6 @@ PrefabInstance:
     - target: {fileID: 8767487207134458451, guid: 435097c853222004b8529551e2f31f79, type: 3}
       propertyPath: m_Name
       value: VIctoryMenu
-      objectReference: {fileID: 0}
-    - target: {fileID: 8767487207195487681, guid: 435097c853222004b8529551e2f31f79, type: 3}
-      propertyPath: m_CullTransparentMesh
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8767487207195487682, guid: 435097c853222004b8529551e2f31f79, type: 3}
-      propertyPath: m_Maskable
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8767487207195487693, guid: 435097c853222004b8529551e2f31f79, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 435097c853222004b8529551e2f31f79, type: 3}
@@ -4179,7 +4167,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6904734531709767314, guid: 9f2b9db91e0a1974caef9bc2c432658e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -8
+      value: 73.96
       objectReference: {fileID: 0}
     - target: {fileID: 6904734531709767314, guid: 9f2b9db91e0a1974caef9bc2c432658e, type: 3}
       propertyPath: m_LocalRotation.w

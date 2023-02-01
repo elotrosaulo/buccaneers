@@ -66,7 +66,7 @@ public class GameManager : MonoBehaviour
 
     public void Victory() 
     {
-        OnVictory?.Invoke("SetVictory");
+        OnVictory?.Invoke();
         Debug.Log("Game won!");
     }
 
