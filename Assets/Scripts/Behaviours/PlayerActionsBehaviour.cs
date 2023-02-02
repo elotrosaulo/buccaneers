@@ -206,17 +206,20 @@ namespace Behaviors
         }
 
         void OnTriggerEnter(Collider other){
-            if(other.tag == "Chest"){
-                other.GetComponent<OpenChest>().OnEnter();
-                OpenChest = other.GetComponent<OpenChest>();
+            if(other.CompareTag("Chest"))
+            {
+                var openChestComponent = other.GetComponent<OpenChest>();
+                openChestComponent.OnEnter();
+                OpenChest = openChestComponent;
             }
-                
-            
         }
         void OnTriggerExit(Collider other){
-            if(other.tag == "Chest"){
-                other.GetComponent<OpenChest>().OnExit();
-                OpenChest = null;
+            if(other.CompareTag("Chest")){
+                if (OpenChest)
+                {
+                    OpenChest.OnExit();
+                    OpenChest = null;
+                }
             }
         }
     }
