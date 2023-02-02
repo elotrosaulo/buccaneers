@@ -11,6 +11,7 @@ namespace Behaviors
         [SerializeField] 
         public int playerId; // rewired player Id of this character
         public float moveSpeed;
+
         [SerializeField]
         private float BaseMovementSpeed;
         [SerializeField]
