@@ -10,15 +10,18 @@ namespace Behaviors
 
         [SerializeField] 
         public int playerId; // rewired player Id of this character
-        [SerializeField] 
         public float moveSpeed;
         [SerializeField]
+        private float BaseMovementSpeed;
         private Light _lightComponent;
+        [SerializeField]
+        private float BaseRangeLight;
         
         private Player _player;
         private float _moveDirection;
         private Vector3 _moveVector;
-        private bool  _isAction, _animationComplete;
+        private bool  _isAction, _animationComplete, _isChest;
+        private OpenChest OpenChest;
         private Rigidbody _playerRigidBody;
         private Animator _animator;
         private string _currentState;
@@ -63,6 +66,8 @@ namespace Behaviors
             HealthSystem.OnHealthAtZero += TurnOffLights;
             GameManager.OnVictory -= TurnOnLights;
             GameManager.OnVictory += TurnOnLights;
+            moveSpeed=BaseMovementSpeed;
+            _lightComponent.range = BaseRangeLight;
         }
 
         private void Restart()
@@ -143,6 +148,27 @@ namespace Behaviors
                 AudioManager.PlaySound(AudioManager.Sound.LightSwitch, false);
             }
 
+            
+            _isChest = Input.GetButtonDown("Jump");
+            if (_isChest && OpenChest != null)
+            {
+               var augment = OpenChest.GetAugment();
+                Debug.Log(augment._NameAugment);
+               switch (augment._NameAugment)
+               {
+                case "SpeedBoost":
+                    moveSpeed=moveSpeed*1.5f;
+                    break;
+                case "BetterLight":
+                    _lightComponent.range *= 2;
+                    break;
+                case "MoreEnergy":
+                    GetComponent<HealthSystem>().DelayDamage *=1.15f;
+                    break;
+               }
+               
+            }
+
         }
 
         private void ProcessMovementInput()
@@ -177,5 +203,19 @@ namespace Behaviors
             OnStopLightDamage?.Invoke(true);
         }
 
+        void OnTriggerEnter(Collider other){
+            if(other.tag == "Chest"){
+                other.GetComponent<OpenChest>().OnEnter();
+                OpenChest = other.GetComponent<OpenChest>();
+            }
+                
+            
+        }
+        void OnTriggerExit(Collider other){
+            if(other.tag == "Chest"){
+                other.GetComponent<OpenChest>().OnExit();
+                OpenChest = null;
+            }
+        }
     }
 }

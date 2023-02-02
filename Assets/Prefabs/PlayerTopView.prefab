@@ -193,6 +193,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   isDead: 0
+  DelayDamage: 1
 --- !u!114 &8420303990313494627
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -274,7 +275,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3261125853991943628, guid: e4cdbff9ab10fef40959da6987c500cb, type: 3}
       propertyPath: m_Range
-      value: 9.952622
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 3261125853991943628, guid: e4cdbff9ab10fef40959da6987c500cb, type: 3}
       propertyPath: m_Intensity

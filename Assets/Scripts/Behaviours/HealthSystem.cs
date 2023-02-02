@@ -11,6 +11,8 @@ namespace Behaviors
         [SerializeField] public int currentHealth;
         [SerializeField] public List<HealthBarBehaviour> healthBar;
         public bool isDead;
+        public float DelayDamage;
+        [SerializeField] private float baseDelayDamage = 1;
 
         public static Action OnHealthAtZero;
         public static Action OnEnemyGrab;
@@ -20,6 +22,7 @@ namespace Behaviors
 
         private void Start()
         {
+            DelayDamage = baseDelayDamage;
             GameManager.OnRestart -= Restart;
             GameManager.OnRestart += Restart;
             Restart();
@@ -65,7 +68,7 @@ namespace Behaviors
                        StartCoroutine(ReduceHealthBySecond(10));
                        break;
                    default:
-                       StartCoroutine(ReduceHealthBySecond(1));
+                       StartCoroutine(ReduceHealthBySecond(DelayDamage));
                        break;
                }
             }

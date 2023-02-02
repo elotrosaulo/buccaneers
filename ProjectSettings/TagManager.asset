@@ -6,6 +6,7 @@ TagManager:
   tags:
   - PickUpItem
   - Enemy
+  - Chest
   layers:
   - Default
   - TransparentFX
