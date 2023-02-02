@@ -512,6 +512,22 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: 325
       objectReference: {fileID: 0}
+    - target: {fileID: 4024011685154062914, guid: afacee388e7a57f44b159e94af492e9f, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4024011685154062914, guid: afacee388e7a57f44b159e94af492e9f, type: 3}
+      propertyPath: m_UseSpriteMesh
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4024011685154062914, guid: afacee388e7a57f44b159e94af492e9f, type: 3}
+      propertyPath: m_PreserveAspect
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6493235627766618085, guid: afacee388e7a57f44b159e94af492e9f, type: 3}
+      propertyPath: m_CullTransparentMesh
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6755217282920509450, guid: afacee388e7a57f44b159e94af492e9f, type: 3}
       propertyPath: m_Name
       value: Battery

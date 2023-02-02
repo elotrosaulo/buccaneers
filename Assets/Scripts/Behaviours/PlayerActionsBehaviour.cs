@@ -13,6 +13,7 @@ namespace Behaviors
         public float moveSpeed;
         [SerializeField]
         private float BaseMovementSpeed;
+        [SerializeField]
         private Light _lightComponent;
         [SerializeField]
         private float BaseRangeLight;
@@ -66,7 +67,7 @@ namespace Behaviors
             HealthSystem.OnHealthAtZero += TurnOffLights;
             GameManager.OnVictory -= TurnOnLights;
             GameManager.OnVictory += TurnOnLights;
-            moveSpeed=BaseMovementSpeed;
+            moveSpeed = BaseMovementSpeed;
             _lightComponent.range = BaseRangeLight;
         }
 

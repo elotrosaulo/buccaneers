@@ -9,7 +9,9 @@ namespace Behaviors
     {
         [SerializeField] public int maxHealth;
         [SerializeField] public int currentHealth;
-        [SerializeField] public List<HealthBarBehaviour> healthBar;
+        //[SerializeField] public List<HealthBarBehaviour> healthBar;
+        [SerializeField] public HealthBarBehaviour EnergyBar;
+
         public bool isDead;
         public float DelayDamage;
         [SerializeField] private float baseDelayDamage = 1;
@@ -32,7 +34,8 @@ namespace Behaviors
         {
             isDead = false;
             currentHealth = maxHealth;
-            healthBar.ForEach(x => x.SetMaxHealth(maxHealth));
+            //healthBar.ForEach(x => x.SetMaxHealth(maxHealth));
+            EnergyBar.SetMaxHealth(maxHealth);
         }
 
         private void OnEnable()
@@ -97,7 +100,8 @@ namespace Behaviors
         private void TakeDamage(int damage)
         {
             currentHealth -= damage;
-            healthBar.ForEach(x => x.SetHealth(currentHealth));
+            //healthBar.ForEach(x => x.SetHealth(currentHealth));
+            EnergyBar.SetHealth(currentHealth);
         }
     }
 }
