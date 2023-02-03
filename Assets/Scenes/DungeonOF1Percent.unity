@@ -442,6 +442,10 @@ PrefabInstance:
       propertyPath: BoostSlot.Array.data[5]
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 7505481279070773625, guid: 0f4c720ff0a9e66498472c536fb1901d, type: 3}
+      propertyPath: allBoost.Array.data[2]._SpriteAugment
+      value: 
+      objectReference: {fileID: 21300000, guid: 5e7717e82c595bf4196ec07960c08254, type: 3}
     - target: {fileID: 8145052624699533031, guid: 0f4c720ff0a9e66498472c536fb1901d, type: 3}
       propertyPath: BoostSlot.Array.size
       value: 3
