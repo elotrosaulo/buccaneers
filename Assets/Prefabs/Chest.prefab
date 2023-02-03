@@ -55,7 +55,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 5e0b39dadcda73a459019f8eeffa5b48, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -419638496, guid: 8d3fba7f8adce2d4185734d8fbc00662, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -84,7 +84,7 @@ SpriteRenderer:
   m_Size: {x: 2, y: 2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!65 &5278380681209875026
@@ -113,14 +113,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SpaceBar: {fileID: 8103032221967285889}
-  number: 0
-  ChestContents:
-  - _SpriteAugment: {fileID: 21300000, guid: 2c90e167b98743444b2e65d4d83e5109, type: 3}
-    _NameAugment: SpeedBoost
-  - _SpriteAugment: {fileID: 21300000, guid: 31550fb40fd3f2644845aaf4dbf0f27e, type: 3}
-    _NameAugment: BetterLight
-  - _SpriteAugment: {fileID: 21300000, guid: 8f335805c53fda64aaa61434be2f148a, type: 3}
-    _NameAugment: MoreEnergy
+  IsOpen: 0
+  BoostIndex: 0
+  state:
+  - {fileID: -419638496, guid: 8d3fba7f8adce2d4185734d8fbc00662, type: 3}
+  - {fileID: -179443515, guid: 8d3fba7f8adce2d4185734d8fbc00662, type: 3}
+  _BoostManager: {fileID: 0}
 --- !u!1 &3111531333967169022
 GameObject:
   m_ObjectHideFlags: 0

@@ -24,6 +24,7 @@ namespace Behaviors
 
         private void Start()
         {
+            //Debug.Log(GetComponent<BoostManager>().allBoost.Count);
             DelayDamage = baseDelayDamage;
             GameManager.OnRestart -= Restart;
             GameManager.OnRestart += Restart;

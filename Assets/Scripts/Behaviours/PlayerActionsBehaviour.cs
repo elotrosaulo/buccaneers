@@ -11,11 +11,12 @@ namespace Behaviors
         [SerializeField] 
         public int playerId; // rewired player Id of this character
         public float moveSpeed;
-
+        [SerializeField]
+        public Light _lightComponent;
+        [SerializeField] private BoostManager _BoostManager;
         [SerializeField]
         private float BaseMovementSpeed;
-        [SerializeField]
-        private Light _lightComponent;
+        
         [SerializeField]
         private float BaseRangeLight;
         
@@ -74,6 +75,8 @@ namespace Behaviors
 
         private void Restart()
         {
+            moveSpeed = BaseMovementSpeed;
+            _lightComponent.range = BaseRangeLight;
             _playerRigidBody.position = _startingPosition;
             _lightComponent.gameObject.SetActive(true);
             OnStopLightDamage?.Invoke(true);
@@ -152,23 +155,10 @@ namespace Behaviors
 
             
             _isChest = Input.GetButtonDown("Jump");
-            if (_isChest && OpenChest != null)
+            if (_isChest && OpenChest != null && !OpenChest.IsOpen)
             {
-               var augment = OpenChest.GetAugment();
-                Debug.Log(augment._NameAugment);
-               switch (augment._NameAugment)
-               {
-                case "SpeedBoost":
-                    moveSpeed=moveSpeed*1.5f;
-                    break;
-                case "BetterLight":
-                    _lightComponent.range *= 2;
-                    break;
-                case "MoreEnergy":
-                    GetComponent<HealthSystem>().DelayDamage *=1.15f;
-                    break;
-               }
-               
+                if(_BoostManager.AddBoostToPlayer(OpenChest.BoostIndex))
+                    OpenChest.Opening();
             }
 
         }

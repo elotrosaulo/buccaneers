@@ -85,7 +85,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5633973689059869576}
-  - component: {fileID: 3905976521341610825}
   m_Layer: 0
   m_Name: Container Boost
   m_TagString: Untagged
@@ -116,22 +115,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -100}
   m_SizeDelta: {x: -300, y: -580}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &3905976521341610825
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4617804206230646335}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 54e614e94a433294c9ad86c3556296bf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  allBoost:
-  - {fileID: 913681028006026442}
-  - {fileID: 839743682113856355}
-  - {fileID: 1295284463146775252}
 --- !u!1 &6748435865661989620
 GameObject:
   m_ObjectHideFlags: 0
@@ -735,19 +718,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: ThirdBoost
       objectReference: {fileID: 0}
+    - target: {fileID: 8587556954042222211, guid: 30af234176c7e7b469b4e60e85fa8252, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 30af234176c7e7b469b4e60e85fa8252, type: 3}
---- !u!114 &1295284463146775252 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8587556954042222211, guid: 30af234176c7e7b469b4e60e85fa8252, type: 3}
-  m_PrefabInstance: {fileID: 7409802194363184215}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!224 &9043123733348007793 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1993765090099317542, guid: 30af234176c7e7b469b4e60e85fa8252, type: 3}
@@ -848,19 +824,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: FirstBoost
       objectReference: {fileID: 0}
+    - target: {fileID: 8587556954042222211, guid: 30af234176c7e7b469b4e60e85fa8252, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 30af234176c7e7b469b4e60e85fa8252, type: 3}
---- !u!114 &913681028006026442 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8587556954042222211, guid: 30af234176c7e7b469b4e60e85fa8252, type: 3}
-  m_PrefabInstance: {fileID: 8900007320123038281}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!224 &6928905991857541487 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1993765090099317542, guid: 30af234176c7e7b469b4e60e85fa8252, type: 3}
@@ -961,19 +930,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: Second Boost
       objectReference: {fileID: 0}
+    - target: {fileID: 8587556954042222211, guid: 30af234176c7e7b469b4e60e85fa8252, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 30af234176c7e7b469b4e60e85fa8252, type: 3}
---- !u!114 &839743682113856355 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8587556954042222211, guid: 30af234176c7e7b469b4e60e85fa8252, type: 3}
-  m_PrefabInstance: {fileID: 8974125820504778208}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!224 &7431283713698754246 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1993765090099317542, guid: 30af234176c7e7b469b4e60e85fa8252, type: 3}
